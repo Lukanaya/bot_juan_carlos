@@ -8,4 +8,6 @@ Ceci est un bot discord pour le serveur discord d'Innofab, il sert à accueillir
 
 - `/fablab_ouvert` Renvoie un message à l'utilisateur indiquant si le fablab est ouvert ou non, si le fablab est fermé, on indique jusqu'à quelle date.
 
+Il requiert python 3.11.8, discord.pi version 2.3.2, pycord version 0.1.1
+
 ### Pour toutes demandes d'information, contacter @lukanaya sur discord.
