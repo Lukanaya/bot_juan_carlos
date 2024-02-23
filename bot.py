@@ -58,13 +58,13 @@ async def absence(interaction: discord.Interaction, depart: int = int(datetime.n
     global retourPersonnel
     if retour is None: #On vérifie si l'utilisateur a rentré une date de retour, si non, on prend la fin du jour actuel
         retourPersonnel = int(datetime.timestamp(datetime.combine(dateDepart, time.max)))
-        await interaction.response.send_message(f"Le personnel du fablab sera absent le <t:{depart}:d>.")
+        await interaction.response.send_message(f"Le fablab sera fermé au public le <t:{depart}:d>.")
     elif dateDepart.year == dateRetour.year and dateDepart.month == dateRetour.month and dateDepart.day == dateRetour.day: # on regarde si le départ et le retour sont le même jour
         retourPersonnel = retour
-        await interaction.response.send_message(f"Le personnel du fablab sera absent le <t:{depart}:d> de <t:{depart}:t> à <t:{retour}:t>.")
+        await interaction.response.send_message(f"Le fablab sera fermé au public le <t:{depart}:d> de <t:{depart}:t> à <t:{retour}:t>.")
     else:
         retourPersonnel = retour
-        await interaction.response.send_message(f"Le personnel du fablab sera absent le <t:{depart}:d> à partir de <t:{depart}:t> et reviendra le <t:{retour}:d> à <t:{retour}:t>.")
+        await interaction.response.send_message(f"Le fablab sera fermé au public le <t:{depart}:d> à partir de <t:{depart}:t> et sera ouvert à nouveau le <t:{retour}:d> à <t:{retour}:t>.")
 
 #Affiche à l'utilisateur ayant utilisé la commande, et seulement lui, un message disant si le fablab est ouvert ou non en fonction de l'absence paramétrée par le staff
 @bot.tree.command(
