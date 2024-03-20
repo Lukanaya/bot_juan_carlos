@@ -82,9 +82,11 @@ async def fablab_ouvert(interaction: discord.Interaction):
 
 #message envoyé quand un membre rejoint le serveur discord
 @bot.event
-async def on_member_join(member):
-    channel = await bot.fetch_channel(553923746277359619)
-    await channel.send("Bienvenue <@" + str(member.id) + "> ! Tu peux te présenter dans le salon <#553937321146318849> en expliquant ton potentiel projet. :smile:")
+async def on_member_update(before, after):
+    if before.pending and not after.pending:
+        channel = await bot.fetch_channel(553923746277359619)
+        await channel.send("Bienvenue <@" + str(after.id) + "> ! Tu peux te présenter dans le salon <#553937321146318849> en expliquant ton potentiel projet. :smile:")
+        
 
 #Lancement du bot avec son token, si il ne marche plus, contacter @lukanaya sur discord
 bot.run(token)
